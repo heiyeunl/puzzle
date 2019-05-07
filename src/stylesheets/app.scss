@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Oswald');
+$background-color : white;
+$boxFontColor : white;
+$box-size: 150px;
+
+@function multiply-px($value1, $value2) {
+    @return $value1 * $value2 / 1px;
+  }
+
+@keyframes Gradient {
+    0%{background-position:50% 0%}
+    50%{background-position:50% 100%}
+    100%{background-position:50% 0%}
+}
+
+@keyframes DelayedFadeIn {
+    0%{opacity:0}
+    50%{opacity:0}
+    100%{opacity:1}
+}
+
+@keyframes FadeIn {
+    0%{opacity:0}
+    100%{opacity:1}
+}
+
+body {
+    margin:0;
+    height:100%;
+}
+
+#root {
+    height:100%
+}
+
+html {
+    height:100%
+}
+
+
+#box15{
+    opacity: 0;
+}
+
+.box{
+    height:$box-size;
+    width:$box-size;
+    border:solid 1px rgb(228, 228, 228);
+    box-sizing : box-sizing;
+    position: absolute;
+}
+
+.boardContainer{
+    display:flex;
+    height:80%;
+    width:100%;
+    flex-direction: column;
+    align-items: center;
+    animation: DelayedFadeIn 1.5s linear;
+}
+
+.board{
+    position: relative;
+    width: multiply-px($box-size, 4px);
+    height:multiply-px($box-size, 4px);
+}
+
+
+button {
+    margin: 20px;
+    width: 100px;
+    height: 40px;
+    background: none;
+    outline:none;
+    border-radius:10px;
+    font-size:15px;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+    position:absolute;
+}
+svg text {
+    text-anchor: middle;
+}
+svg mask rect {
+    fill: $background-color
+}
+svg > rect {
+    fill: $background-color;
+    -webkit-mask: url(#mask);
+    mask: url(#mask);
+}
+
+
+.header {
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    height:130px;
+    background: linear-gradient(0deg, #e55d87, #5fc3e4);
+    background-size: 400% 400%;
+    animation: Gradient 4s linear infinite;
+}
+
+.bottomPanel{
+    font-family: "Lato", sans-serif;
+    z-index:100;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+}
+
+.boxNumberContainer{
+    font-family: 'Oswald', sans-serif;
+    color: $boxFontColor;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 80px;
+    text-shadow: 0 0 4px black;
+    animation: FadeIn .5s linear;
+}
+
+.winMessageContainer{
+    position: absolute;
+    z-index:100;
+    width:multiply-px($box-size, 4px);
+    height:multiply-px($box-size, 4px);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    color: $boxFontColor;
+    text-shadow: 0 0 4px black;
+
+    font-size: 85px;
+    animation: DelayedFadeIn 1s linear;
+}
+
+.displayNumberButton{
+    width:140px;
+}

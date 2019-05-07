@@ -1,0 +1,11 @@
+export const TEST_DATA = "TEST_DATA";
+
+export const MOVE_TARGET = "MOVE_TARGET";
+
+export const SET_PICTURE_URL = "SET_PICTURE_URL";
+
+export const SET_PICTURE_URL_NULL = "SET_PICTURE_URL_NULL";
+
+export const START_SHUFFLE = "START_SHUFFLE";
+
+export const TOGGLE_DISPLAY_NUMBER = "TOGGLE_DISPLAY_NUMBER";
