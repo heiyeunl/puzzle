@@ -7,3 +7,5 @@ to take a look at this game:
 
 this game will be on your localhost:3000 here
 http://localhost:3000/
+
+The game can be played using arrow keys. You can shuffle it manually or hit the "Shuffle" button to have it shuffled randomly. You can also hit the "New Picture" to request a different picture.
