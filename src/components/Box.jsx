@@ -1,25 +1,14 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React from "react";
 
-const mapStateToProps = store => ({
-  isBoxNumberDisplayed: store.game.isBoxNumberDisplayed,
-});
+const Box = props => {
+  const { id, isBoxNumberDisplayed, key, boxStyle, number } = props;
+  return (
+    <div className="box" id={id} key={key} style={boxStyle}>
+      {isBoxNumberDisplayed && (
+        <div className="boxNumberContainer">{number}</div>
+      )}
+    </div>
+  );
+};
 
-class Box extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const { id, isBoxNumberDisplayed, key, boxStyle, number } = this.props;
-    return (
-      <div className="box" id={id} key={key} style={boxStyle}>
-        {isBoxNumberDisplayed && (
-          <div className="boxNumberContainer">{number}</div>
-        )}
-      </div>
-    );
-  }
-}
-
-export default connect(mapStateToProps, null)(Box);
+export default Box;

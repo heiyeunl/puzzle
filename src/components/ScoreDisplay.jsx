@@ -1,21 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React from "react";
 
-const mapStateToProps = store => ({
-  numberOfMoves: store.game.numberOfMoves
-});
+const ScoreDisplay = props => {
+  return (
+    <div className="scoreDisplay">
+      Number of Moves : {props.numberOfMoves} 
+    </div>
+  );
+};
 
-class ScoreDisplay extends Component {
-  render() {
-    return (
-      <div className="scoreDisplay">
-        Number of Moves : {this.props.numberOfMoves}
-      </div>
-    );
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  null
-)(ScoreDisplay);
+export default ScoreDisplay;

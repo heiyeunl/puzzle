@@ -13,7 +13,8 @@ const mapStateToProps = store => ({
   targetOppositeDirection: store.game.targetOppositeDirection,
   shuffle: store.game.shuffle,
   srcImg: store.game.srcImg,
-  hasWon: store.game.hasWon
+  hasWon: store.game.hasWon,
+  isBoxNumberDisplayed: store.game.isBoxNumberDisplayed
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -28,7 +29,6 @@ const mapDispatchToProps = dispatch => ({
 class GameContainer extends Component {
   constructor(props) {
     super(props);
-
     this.onKeyPressed = this.onKeyPressed.bind(this);
     this.checkValidMove = this.checkValidMove.bind(this);
   }
@@ -76,18 +76,21 @@ class GameContainer extends Component {
   onKeyPressed(e) {
     const keyPressed = e.keyCode;
     e.preventDefault();
-    if (keyPressed === 40 && this.checkValidMove(this.props.whiteSquareIndex, "down"))
+    if (keyPressed === 40 && this.checkValidMove(this.props.whiteSquareIndex, "down")) {
       this.props.moveTarget("down");
+    }
 
-    if (keyPressed === 38 && this.checkValidMove(this.props.whiteSquareIndex, "up"))
+    if (keyPressed === 38 && this.checkValidMove(this.props.whiteSquareIndex, "up")) {
       this.props.moveTarget("up");
+    }
 
-    if (keyPressed === 39 && this.checkValidMove(this.props.whiteSquareIndex, "right"))
+    if (keyPressed === 39 && this.checkValidMove(this.props.whiteSquareIndex, "right")) {
       this.props.moveTarget("right");
+    }
 
-    if (keyPressed === 37 && this.checkValidMove(this.props.whiteSquareIndex, "left"))
+    if (keyPressed === 37 && this.checkValidMove(this.props.whiteSquareIndex, "left")) {
       this.props.moveTarget("left");
-
+    }
   }
 
   render() {
@@ -98,7 +101,8 @@ class GameContainer extends Component {
       srcImg,
       targetOffSetY,
       targetOffSetX,
-      hasWon
+      hasWon,
+      isBoxNumberDisplayed
     } = this.props;
 
     for (let j = 0; j < board.length; j++) {
@@ -124,6 +128,7 @@ class GameContainer extends Component {
           key={`boxIndex` + j}
           boxStyle={boxStyle}
           number={board[j]}
+          isBoxNumberDisplayed={isBoxNumberDisplayed}
         />
       );
     }
