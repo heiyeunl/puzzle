@@ -6,19 +6,20 @@ const mapStateToProps = store => ({
 });
 
 class Box extends Component {
-    constructor(props){
-        super(props)
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-      console.log(this.props.boxStyle)
-      const {id, isBoxNumberDisplayed, key, boxStyle, number} = this.props;
-      return (
-        <div className = 'box' id={id} key={key} style={boxStyle}>
-          {isBoxNumberDisplayed && <div className='boxNumberContainer'>{number}</div>}
-        </div>
-      )
-    }
+  render() {
+    const { id, isBoxNumberDisplayed, key, boxStyle, number } = this.props;
+    return (
+      <div className="box" id={id} key={key} style={boxStyle}>
+        {isBoxNumberDisplayed && (
+          <div className="boxNumberContainer">{number}</div>
+        )}
+      </div>
+    );
+  }
 }
 
-export default connect(mapStateToProps, null)(Box)
+export default connect(mapStateToProps, null)(Box);

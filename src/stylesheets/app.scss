@@ -67,7 +67,7 @@ html {
 
 
 button {
-    margin: 20px;
+    margin: 0 15px;
     width: 100px;
     height: 40px;
     background: none;
@@ -135,9 +135,20 @@ svg > rect {
     text-shadow: 0 0 4px black;
 
     font-size: 85px;
-    animation: DelayedFadeIn 1s linear;
+    animation: DelayedFadeIn .6s linear;
+
+    .winMessage{
+        animation: DelayedFadeIn 1.8s linear;
+    }
 }
 
 .displayNumberButton{
     width:140px;
+}
+
+.instruction{
+    margin: 10px;
+    position:relative;
+    font-family:'Lato', sans-serif;
+    font-size: 20px;
 }
