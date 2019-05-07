@@ -54,4 +54,4 @@ class BottomPanel extends PureComponent {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BottomPanel)
+export default connect(mapStateToProps, mapDispatchToProps)(BottomPanel);
