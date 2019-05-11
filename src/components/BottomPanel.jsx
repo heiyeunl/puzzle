@@ -5,7 +5,8 @@ import * as gameActions from "../actions/creators/gameActions";
 
 const mapStateToProps = store => ({
   shuffle: store.game.shuffle,
-  hasWon: store.game.hasWon
+  hasWon: store.game.hasWon,
+  numberOfMoves: store.game.numberOfMoves
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -33,11 +34,11 @@ class BottomPanel extends PureComponent {
   }
 
   render() {
-    const { shuffle, hasWon } = this.props;
+    const { shuffle, hasWon, numberOfMoves } = this.props;
 
     return (
       <div className="bottomPanel">
-        <ScoreDisplay />
+        <ScoreDisplay numberOfMoves={numberOfMoves}/>
         <button onClick={this.clickShuffle}>Shuffle</button>
         <button disabled={shuffle} onClick={this.props.newPicRequest}>
           {hasWon ? "New Game" : "New Picture"}
